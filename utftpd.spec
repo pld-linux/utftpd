@@ -143,7 +143,7 @@ else
 	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
 fi
 echo "Rebuilding utftpd configuration:"
-utftpd_make /etc/utftpd.cdb /tmp/utftp.tmp /etc/utftpd.conf
+utftpd_make /etc/utftpd.cdb /etc/utftp.tmp /etc/utftpd.conf
 
 %postun -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
