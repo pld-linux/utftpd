@@ -43,14 +43,13 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
+install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/state/tftp}
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
 
-gzip -9nf AUTHORS ChangeLog NEWS README README.cvs \
+gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config \
 	$RPM_BUILD_ROOT/%{_mandir}/man{1,5,8}/*
 
 %post
@@ -59,6 +58,8 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 else
 	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet sever" 1>&2
 fi
+touch /etc/utftpd.cdb
+chmod 640 /etc/utftpd.cdb
 
 %postun
 if [ -f /var/lock/subsys/rc-inetd ]; then
@@ -70,7 +71,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,NEWS,README,README.cvs}.gz
+%doc *gz
+%attr(640,root,root) %ghost /etc/utftpd.cdb
 %attr(755,root,root) %{_bindir}/utftp
 %attr(755,root,root) %{_sbindir}/utftpd
 %attr(755,root,root) %{_sbindir}/utftpd_make
@@ -79,3 +81,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/utftpd.8.gz
 %{_mandir}/man5/utftpd.conf.5.gz
 %{_mandir}/man1/utftp.1.gz
+%dir /var/state/tftp
