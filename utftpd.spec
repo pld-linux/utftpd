@@ -49,6 +49,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
 
+touch $RPM_BUILD_ROOT/etc/utftpd.cdb
+
 gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config \
 	$RPM_BUILD_ROOT/%{_mandir}/man{1,5,8}/*
 
