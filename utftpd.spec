@@ -5,8 +5,6 @@ Version:	0.2.4
 Release:	9
 License:	GPL
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
 Source2:	%{name}.conf
@@ -59,10 +57,6 @@ Opis mo¿liwo¶ci serwera GNU utftpd:
 Summary:	utftpd - a TFTP client
 Summary(pl):	utftpd - klient TFTP
 Group:		Networking/Utilities
-Group(de):	Netzwerkwesen/Werkzeuge
-Group(es):	Red/Utilitarios
-Group(pl):	Sieciowe/Narzêdzia
-Group(pt_BR):	Rede/Utilitários
 
 %description client
 utftpd is a server for the trivial file transfer protocol (TFTP) with
