@@ -166,7 +166,7 @@ fi
 %attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
 %{_mandir}/man5/utftpd*.5*
 %{_mandir}/man8/utftpd*.8*
-%attr(750,tftp,ftp) %dir /var/lib/tftp
+%attr(750,tftp,tftp) %dir /var/lib/tftp
 
 %files client
 %defattr(644,root,root,755)
