@@ -6,6 +6,7 @@ Release:	13
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
+# Source0-md5:	3adf5d86c7b6d83d8ec4099e54e8dede
 Source1:	%{name}.inetd
 Source2:	%{name}.conf
 URL:		http://www.ohse.de/uwe/software/utftpd.html
