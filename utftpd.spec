@@ -10,6 +10,7 @@ Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
 Source2:	%{name}.conf
+URL:		http://www.ohse.de/uwe/software/utftpd.html
 Provides:	tftpdaemon
 Buildrequires:	autoconf
 Prereq:		rc-inetd
