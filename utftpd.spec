@@ -2,7 +2,7 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	16
+Release:	17
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
@@ -16,10 +16,11 @@ Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
 Requires(postun):	/usr/sbin/userdel
 Provides:	tftpdaemon
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	atftpd
 Obsoletes:	tftpd-hpa
 Obsoletes:	tftpd
 Obsoletes:	tftp-server
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 utftpd is a server for the trivial file transfer protocol (TFTP) with
