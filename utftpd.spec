@@ -5,7 +5,7 @@ Release: 0
 Copyright: GPL
 Group: Applications/Communications
 Source: ftp://ftp.ohse.de/uwe/releases/utftpd-0.2.0.tar.gz
-BuildRoot: /var/tmp/utftpd-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 A TFTP server.
