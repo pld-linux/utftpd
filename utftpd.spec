@@ -2,7 +2,7 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	18
+Release:	19
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
@@ -19,6 +19,7 @@ Requires(postun):	/usr/sbin/userdel
 Provides:	tftpdaemon
 Provides:	user(tftp)
 Obsoletes:	atftpd
+Obsoletes:	inetutils-tftpd
 Obsoletes:	tftpd-hpa
 Obsoletes:	tftpd
 Obsoletes:	tftp-server
@@ -119,7 +120,8 @@ Ten pakiet zawiera tylko klienta utftp.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/lib/tftp}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/utftpd.conf
