@@ -2,7 +2,7 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
@@ -43,7 +43,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/state/tftp}
+install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/lib/tftp}
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
@@ -83,4 +83,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/utftpd.8.gz
 %{_mandir}/man5/utftpd.conf.5.gz
 %{_mandir}/man1/utftp.1.gz
-%dir /var/state/tftp
+%dir /var/lib/tftp
