@@ -124,12 +124,18 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/utftpd.cdb
 gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config
 
 %post
-%rc_inetd_post
+if [ -f /var/lock/subsys/rc-inetd ]; then
+	/etc/rc.d/init.d/rc-inetd restart 1>&2
+else
+	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet sever" 1>&2
+fi
 touch %{_sysconfdir}/utftpd.cdb
 chmod 640 %{_sysconfdir}/utftpd.cdb
 
 %postun
-%rc_inetd_postun
+if [ -f /var/lock/subsys/rc-inetd ]; then
+	/etc/rc.d/init.d/rc-inetd restart
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
