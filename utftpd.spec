@@ -132,8 +132,9 @@ if [ -n "`id -u tftp 2>/dev/null`" ]; then
 		exit 1
 	fi
 else
-	echo "Adding user tftp UID=15"
+	echo -n "Adding user tftp UID=15..."
         /usr/sbin/useradd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp 1>&2
+	echo "done"
 fi
 
 %post -n utftpd
@@ -142,8 +143,9 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 else
 	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
 fi
-echo "Rebuilding utftpd configuration:"
+echo -n "Rebuilding utftpd configuration..."
 utftpd_make /etc/utftpd.cdb /etc/utftp.tmp /etc/utftpd.conf
+echo "done"
 
 %postun -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
@@ -151,8 +153,9 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 fi
 
 if [ "$1" = "0" ]; then
-	echo "Removing user tftp UID=15"
+	echo -n "Removing user tftp UID=15..."
         /usr/sbin/userdel tftp
+	echo "done"
 fi
 
 %clean
