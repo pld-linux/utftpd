@@ -2,16 +2,19 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	9
+Release:	10
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
 Source2:	%{name}.conf
 URL:		http://www.ohse.de/uwe/software/utftpd.html
+BuildRequires:	autoconf
+PreReq:		rc-inetd
+Requires(pre):	/bin/id
+Requires(pre):	/usr/sbin/useradd
+Requires(postun):	/usr/sbin/userdel
 Provides:	tftpdaemon
-Buildrequires:	autoconf
-Prereq:		rc-inetd
 Obsoletes:	tftpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -97,8 +100,7 @@ Opis mo¿liwo¶ci serwera GNU utftpd:
  - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
    razie ustawiania opcji tsize (RFC 2349).
 
-Ten pakiet zawiera tylko utftp klienta.
-
+Ten pakiet zawiera tylko klienta utftp.
 
 %prep
 %setup -q
@@ -119,27 +121,27 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/utftpd.conf
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/{utftpd.cdb,utftpd.conf}
 
-gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %pre -n utftpd
 if [ -n "`id -u tftp 2>/dev/null`" ]; then
 	if [ "`id -u tftp`" != "15" ]; then
-		echo "Warning: user tftp haven't uid=15. Correct this before installing tftpd" 1>&2
+		echo "Error: user tftp doesn't have uid=15. Correct this before installing utftpd." 1>&2
 		exit 1
 	fi
 else
-	echo -n "Adding user tftp UID=15..."
-        /usr/sbin/useradd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp 1>&2
-	echo "done"
+	echo "Adding user tftp UID=15."
+	/usr/sbin/useradd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp 1>&2
 fi
 
 %post -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd restart 1>&2
 else
-	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
+	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server." 1>&2
 fi
-echo -n "Rebuilding utftpd configuration..."
+echo -n "Rebuilding utftpd configuration... "
 utftpd_make /etc/utftpd.cdb /etc/utftp.tmp /etc/utftpd.conf
 echo "done"
 
@@ -149,27 +151,23 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 fi
 
 if [ "$1" = "0" ]; then
-	echo -n "Removing user tftp UID=15..."
-        /usr/sbin/userdel tftp
-	echo "done"
+	echo -n "Removing user tftp."
+	/usr/sbin/userdel tftp
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *gz
+%doc AUTHORS ChangeLog NEWS README README.cvs sample.config
 %attr(640,root,root) %ghost %{_sysconfdir}/utftpd.cdb
 %attr(644,root,root) %config(noreplace) %{_sysconfdir}/utftpd.conf
 %attr(755,root,root) %{_sbindir}/utftpd
 %attr(755,root,root) %{_sbindir}/utftpd_*
 %attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
-%{_mandir}/man5/utftpd*.5.gz
-%{_mandir}/man8/utftpd*.8.gz
+%{_mandir}/man5/utftpd*.5*
+%{_mandir}/man8/utftpd*.8*
 %attr(755,tftp,ftp) %dir /var/lib/tftp
 
 %files client
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/utftp
-%{_mandir}/man1/utftp.1.gz
+%{_mandir}/man1/utftp.1*
