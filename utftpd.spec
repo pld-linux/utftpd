@@ -7,6 +7,7 @@ Copyright:	GPL
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
 Source:		ftp://ftp.ohse.de/uwe/releases/utftpd-0.2.0.tar.gz
+Source1:	utftpd.inetd
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -25,7 +26,11 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
+
 make install DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
 
 gzip -9nf AUTHORS ChangeLog NEWS README README.cvs \
 	$RPM_BUILD_ROOT/%{_mandir}/man{1,5,8}/*
@@ -39,6 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/utftp
 %attr(755,root,root) %{_sbindir}/utftpd
 %attr(755,root,root) %{_sbindir}/utftpd_make
+%attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
 %{_mandir}/man8/utftpd_make.8.gz
 %{_mandir}/man8/utftpd.8.gz
 %{_mandir}/man5/utftpd.conf.5.gz
