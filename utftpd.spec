@@ -26,8 +26,8 @@ make prefix=$RPM_BUILD_ROOT/usr install
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README README.cvs
 %{_bindir}/utftp
-/usr/sbin/utftpd
-/usr/sbin/utftpd_make
+%{_sbindir}/utftpd
+%{_sbindir}/utftpd_make
 %{_mandir}/man8/utftpd_make.8
 %{_mandir}/man8/utftpd.8
 %{_mandir}/man5/utftpd.conf.5
