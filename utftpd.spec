@@ -65,7 +65,7 @@ chmod 640 /etc/utftpd.cdb
 
 %postun
 if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd stop
+	/etc/rc.d/init.d/rc-inetd restart
 fi
 
 %clean
