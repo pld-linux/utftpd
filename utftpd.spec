@@ -60,7 +60,6 @@ Summary(pl):	utftpd - klient TFTP
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
-Obsoletes:	tftp
 
 %description client
 utftpd is a server for the trivial file transfer protocol (TFTP) with
