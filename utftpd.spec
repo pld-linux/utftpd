@@ -16,8 +16,9 @@ Requires(pre):	/usr/sbin/useradd
 Requires(postun):	/usr/sbin/userdel
 Provides:	tftpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	tftpd
 Obsoletes:	tftpa-hpa
+Obsoletes:	tftpd
+Obsoletes:	tftp-server
 
 %description
 utftpd is a server for the trivial file transfer protocol (TFTP) with
@@ -55,7 +56,6 @@ Opis mo¿liwo¶ci serwera GNU utftpd:
    efektywne (szczególnie przy komunikacji bezpo¶eniej).
  - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
    razie ustawiania opcji tsize (RFC 2349).
-
 
 %package client
 Summary:	utftpd - a TFTP client
