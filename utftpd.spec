@@ -37,6 +37,7 @@ Serwer TFTP.
 %setup -q
 
 %build
+LDFLAGS="-s" ;export LDFLAGS
 %configure
 make
 
