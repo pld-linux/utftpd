@@ -9,6 +9,7 @@ Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
+Buildrequires:	autoconf
 Prereq:		rc-inetd
 Provides:	tftpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
