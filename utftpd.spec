@@ -2,7 +2,7 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	12
+Release:	13
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
@@ -166,7 +166,7 @@ fi
 %attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
 %{_mandir}/man5/utftpd*.5*
 %{_mandir}/man8/utftpd*.8*
-%attr(755,tftp,ftp) %dir /var/lib/tftp
+%attr(750,tftp,ftp) %dir /var/lib/tftp
 
 %files client
 %defattr(644,root,root,755)
