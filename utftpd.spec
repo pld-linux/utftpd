@@ -9,6 +9,7 @@ Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
+Source2:	%{name}.conf
 Provides:	tftpdaemon
 Buildrequires:	autoconf
 Prereq:		rc-inetd
@@ -118,6 +119,7 @@ install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/lib/tftp}
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/utftpd.conf
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/{utftpd.cdb,utftpd.conf}
 
@@ -140,6 +142,8 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 else
 	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
 fi
+echo "Rebuilding utftpd configuration:"
+utftpd_make /etc/utftpd.cdb /tmp/utftp.tmp /etc/utftpd.conf
 
 %postun -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
