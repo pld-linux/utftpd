@@ -104,7 +104,7 @@ Ten pakiet zawiera tylko utftp klienta.
 %setup -q
 
 %build
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
