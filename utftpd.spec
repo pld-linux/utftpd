@@ -55,10 +55,10 @@ Opis mo¿liwo¶ci serwera GNU utftpd:
  - wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
    Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
    konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
-   TFTP. Jest to oczywiscie cecha opcjonalna.
- - wsparcie do opcji blksize (RFC 2348). Umozliwia ona u¿ywanie
+   TFTP. Jest to oczywi¶cie cecha opcjonalna.
+ - wsparcie do opcji blksize (RFC 2348). Umo¿liwia ona u¿ywanie
    pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
-   efektywne (szczególnie przy komunikacji bezpo¶eniej).
+   efektywne (szczególnie przy komunikacji bezpo¶redniej).
  - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
    razie ustawiania opcji tsize (RFC 2349).
 
@@ -89,12 +89,12 @@ Description with the features GNU utftpd has:
 This package contains utftp client only.
 
 %description client -l pl
-Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wieksz± ni¿
+Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wiêksz± ni¿
 standardowy serwer tftpd.
 
 Opis mo¿liwo¶ci serwera GNU utftpd:
  - wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
-   zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±æ na
+   zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±c na
    nazwach hostów z których s± wykonywane te operacje.
  - wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
    Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
@@ -102,7 +102,7 @@ Opis mo¿liwo¶ci serwera GNU utftpd:
    TFTP. Jest to oczywiscie cecha opcjonalna.
  - wsparcie do opcji blksize (RFC 2348). Umozliwia ona u¿ywanie
    pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
-   efektywne (szczególnie przy komunikacji bezpo¶eniej).
+   efektywne (szczególnie przy komunikacji bezpo¶redniej).
  - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
    razie ustawiania opcji tsize (RFC 2349).
 
