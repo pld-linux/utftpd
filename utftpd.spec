@@ -1,8 +1,8 @@
 Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
-Version:	0.2.0
-Release:	2
+Version:	0.2.4
+Release:	1
 Copyright:	GPL
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
