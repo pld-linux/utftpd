@@ -2,12 +2,13 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Daemons
+Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
-Source1:	utftpd.inetd
+Source1:	%{name}.inetd
 Prereq:		rc-inetd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,7 +38,6 @@ Serwer TFTP.
 %setup -q
 
 %build
-LDFLAGS="-s" ;export LDFLAGS
 %configure
 %{__make}
 
@@ -51,8 +51,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/utftpd.cdb
 
-gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config \
-	$RPM_BUILD_ROOT/%{_mandir}/man{1,5,8}/*
+gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config
 
 %post
 if [ -f /var/lock/subsys/rc-inetd ]; then
