@@ -28,10 +28,10 @@ make prefix=$RPM_BUILD_ROOT/usr install
 /usr/bin/utftp
 /usr/sbin/utftpd
 /usr/sbin/utftpd_make
-/usr/man/man8/utftpd_make.8
-/usr/man/man8/utftpd.8
-/usr/man/man5/utftpd.conf.5
-/usr/man/man1/utftp.1
+%{_mandir}/man8/utftpd_make.8
+%{_mandir}/man8/utftpd.8
+%{_mandir}/man5/utftpd.conf.5
+%{_mandir}/man1/utftp.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
