@@ -14,7 +14,7 @@ A TFTP server.
 %setup
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr
+%configure
 make
 
 %install
