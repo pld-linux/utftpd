@@ -9,6 +9,8 @@ Group(pl):	Sieciowe/Serwery
 Source:		ftp://ftp.ohse.de/uwe/releases/utftpd-0.2.0.tar.gz
 Source1:	utftpd.inetd
 BuildRoot:	/tmp/%{name}-%{version}-root
+Requires:	inetdaemon
+Requires:	rc-inetd
 
 %description
 A TFTP server.
