@@ -151,7 +151,7 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 fi
 
 if [ "$1" = "0" ]; then
-	echo -n "Removing user tftp."
+	echo "Removing user tftp."
 	/usr/sbin/userdel tftp
 fi
 
