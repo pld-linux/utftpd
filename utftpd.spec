@@ -2,7 +2,7 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	4
+Release:	5
 License:	GPL
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
@@ -33,7 +33,22 @@ Description with the features GNU utftpd has:
    option of RFC 2349 now.
 
 %description -l pl
-Serwer TFTP.
+Pakiet utftpd zawiera serwer TFTP z
+kontrol± dosrepu wieksz± ni¿ standardowy serwer tftpd.
+
+Opis mo¿liwo¶ci serwera GNU utftpd:
+ - wsparcie d okontrli dosepu per IP. utftpd moze przypisywaæ
+   prawa zapisu, odczytu, terzenai plików i ich nadpisywania bazujaæ
+   na nazwach hostów z których s± wykonywane te operacje.
+ - wsparcie do systemów rontroli wersji jak RCS, SCCS czy CVS. Umo¿liwia
+   to np. odtorzenie poprzeniej wersji pliku np. z konfiguraj± routera
+   jaka zosta³a zesk³adowana na zserwerze z u¿yciem TFTP. Jest to
+   oczywiscie cecha opcjonalna.
+ - wsparcie do opcji blksize (RFC 2348). Umozliwia ona u¿ywanie pakietów
+   wiekszych ni¿ standardowe 512 bajtów co jest nieco bardziej efektywne
+   (szczególnie przy komunikacji bezpo¶eniej).
+ - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na razie
+   ustawiania opcji tsize (RFC 2349).
 
 %prep
 %setup -q
