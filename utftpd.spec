@@ -9,7 +9,7 @@ Group(pl):	Sieciowe/Serwery
 Source:		ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	utftpd.inetd
 Prereq:		rc-inetd
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 utftpd is a server for the trivial file transfer protocol (TFTP) with finer
