@@ -39,6 +39,7 @@ Serwer TFTP.
 %setup -q
 
 %build
+autoconf
 %configure
 %{__make}
 
@@ -79,8 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/utftpd
 %attr(755,root,root) %{_sbindir}/utftpd_make
 %attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
-%{_mandir}/man8/utftpd_make.8.gz
-%{_mandir}/man8/utftpd.8.gz
-%{_mandir}/man5/utftpd.conf.5.gz
+%{_mandir}/man8/utftpd*.8.gz
 %{_mandir}/man1/utftp.1.gz
 %dir /var/lib/tftp
