@@ -84,7 +84,7 @@ Description with the features GNU utftpd has:
 
 This package contains utftp client only.
 
-%description -l pl client
+%description client -l pl
 Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wieksz± ni¿
 standardowy serwer tftpd.
 
