@@ -35,9 +35,3 @@ make prefix=$RPM_BUILD_ROOT/usr install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%changelog
-* Mon Apr 5 1999 Uwe Ohse <uwe@ohse.de>
-- brought in line with utftpd-0.1.4 release
-* Sun Mar 28 1999 Uwe Ohse <uwe@ohse.de>
-- created it.
