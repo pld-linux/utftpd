@@ -10,6 +10,7 @@ Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
 Prereq:		rc-inetd
+Provides:	tftpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
