@@ -11,11 +11,13 @@ Source1:	%{name}.inetd
 Source2:	%{name}.conf
 URL:		http://www.ohse.de/uwe/software/utftpd.html
 BuildRequires:	autoconf
+BuildRequires:	rpmbuild(macros) >= 1.159
 PreReq:		rc-inetd
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
 Requires(postun):	/usr/sbin/userdel
 Provides:	tftpdaemon
+Provides:	user(tftp)
 Obsoletes:	atftpd
 Obsoletes:	tftpd-hpa
 Obsoletes:	tftpd
@@ -154,8 +156,7 @@ if [ -f /var/lock/subsys/rc-inetd ]; then
 fi
 
 if [ "$1" = "0" ]; then
-	echo "Removing user tftp."
-	/usr/sbin/userdel tftp
+	%userremove tftp
 fi
 
 %files
