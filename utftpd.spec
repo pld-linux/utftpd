@@ -30,37 +30,37 @@ utftpd is a server for the trivial file transfer protocol (TFTP) with
 finer grained access control then the standard UNIX tftpd.
 
 Description with the features GNU utftpd has:
- - support for IP based access control. utftpd can assign the right to
-   read, create or overwrite a file (or files in a directory) on a
-   per-host base.
- - support for revision control. utftpd can checkin/out files under
-   SCCS or RCS version control. This was one of the main reasons to write
-   it: version control is the easiest way to restore the configuration
-   our IP routers (Ascends, Ciscos) had yesterday or some weeks ago. This
-   is, of course, optional.
- - support for the blksize option (RFC 2348). Allows packets larger
-   than the usual 512 bytes, and is _somewhat_ more efficient (especially
-   on a directly connected network).
- - support for the timeout option (RFC 2349) No support for the tsize
-   option of RFC 2349 now.
+- support for IP based access control. utftpd can assign the right to
+  read, create or overwrite a file (or files in a directory) on a
+  per-host base.
+- support for revision control. utftpd can checkin/out files under
+  SCCS or RCS version control. This was one of the main reasons to write
+  it: version control is the easiest way to restore the configuration
+  our IP routers (Ascends, Ciscos) had yesterday or some weeks ago. This
+  is, of course, optional.
+- support for the blksize option (RFC 2348). Allows packets larger
+  than the usual 512 bytes, and is _somewhat_ more efficient (especially
+  on a directly connected network).
+- support for the timeout option (RFC 2349) No support for the tsize
+  option of RFC 2349 now.
 
 %description -l pl
 Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wieksz± ni¿
 standardowy serwer tftpd.
 
 Opis mo¿liwo¶ci serwera GNU utftpd:
- - wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
-   zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±æ na
-   nazwach hostów z których s± wykonywane te operacje.
- - wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
-   Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
-   konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
-   TFTP. Jest to oczywi¶cie cecha opcjonalna.
- - wsparcie do opcji blksize (RFC 2348). Umo¿liwia ona u¿ywanie
-   pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
-   efektywne (szczególnie przy komunikacji bezpo¶redniej).
- - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
-   razie ustawiania opcji tsize (RFC 2349).
+- wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
+  zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±æ na
+  nazwach hostów z których s± wykonywane te operacje.
+- wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
+  Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
+  konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
+  TFTP. Jest to oczywi¶cie cecha opcjonalna.
+- wsparcie do opcji blksize (RFC 2348). Umo¿liwia ona u¿ywanie
+  pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
+  efektywne (szczególnie przy komunikacji bezpo¶redniej).
+- mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
+  razie ustawiania opcji tsize (RFC 2349).
 
 %package client
 Summary:	utftpd - a TFTP client
@@ -72,19 +72,19 @@ utftpd is a server for the trivial file transfer protocol (TFTP) with
 finer grained access control then the standard UNIX tftpd.
 
 Description with the features GNU utftpd has:
- - support for IP based access control. utftpd can assign the right to
-   read, create or overwrite a file (or files in a directory) on a
-   per-host base.
- - support for revision control. utftpd can checkin/out files under
-   SCCS or RCS version control. This was one of the main reasons to write
-   it: version control is the easiest way to restore the configuration
-   our IP routers (Ascends, Ciscos) had yesterday or some weeks ago. This
-   is, of course, optional.
- - support for the blksize option (RFC 2348). Allows packets larger
-   than the usual 512 bytes, and is _somewhat_ more efficient (especially
-   on a directly connected network).
- - support for the timeout option (RFC 2349) No support for the tsize
-   option of RFC 2349 now.
+- support for IP based access control. utftpd can assign the right to
+  read, create or overwrite a file (or files in a directory) on a
+  per-host base.
+- support for revision control. utftpd can checkin/out files under
+  SCCS or RCS version control. This was one of the main reasons to write
+  it: version control is the easiest way to restore the configuration
+  our IP routers (Ascends, Ciscos) had yesterday or some weeks ago. This
+  is, of course, optional.
+- support for the blksize option (RFC 2348). Allows packets larger
+  than the usual 512 bytes, and is _somewhat_ more efficient (especially
+  on a directly connected network).
+- support for the timeout option (RFC 2349) No support for the tsize
+  option of RFC 2349 now.
 
 This package contains utftp client only.
 
@@ -93,18 +93,18 @@ Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wiêksz± ni¿
 standardowy serwer tftpd.
 
 Opis mo¿liwo¶ci serwera GNU utftpd:
- - wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
-   zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±c na
-   nazwach hostów z których s± wykonywane te operacje.
- - wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
-   Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
-   konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
-   TFTP. Jest to oczywiscie cecha opcjonalna.
- - wsparcie do opcji blksize (RFC 2348). Umozliwia ona u¿ywanie
-   pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
-   efektywne (szczególnie przy komunikacji bezpo¶redniej).
- - mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
-   razie ustawiania opcji tsize (RFC 2349).
+- wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
+  zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±c na
+  nazwach hostów z których s± wykonywane te operacje.
+- wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
+  Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
+  konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
+  TFTP. Jest to oczywiscie cecha opcjonalna.
+- wsparcie do opcji blksize (RFC 2348). Umozliwia ona u¿ywanie
+  pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
+  efektywne (szczególnie przy komunikacji bezpo¶redniej).
+- mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
+  razie ustawiania opcji tsize (RFC 2349).
 
 Ten pakiet zawiera tylko klienta utftp.
 
