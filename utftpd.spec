@@ -160,13 +160,13 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README README.cvs sample.config
 %attr(640,root,root) %ghost %{_sysconfdir}/utftpd.cdb
-%attr(644,root,root) %config(noreplace) %{_sysconfdir}/utftpd.conf
+%attr(644,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/utftpd.conf
 %attr(755,root,root) %{_sbindir}/utftpd
 %attr(755,root,root) %{_sbindir}/utftpd_*
-%attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
+%attr(640,root,root) %config %verify(not size mtime md5) /etc/sysconfig/rc-inetd/utftpd
 %{_mandir}/man5/utftpd*.5*
 %{_mandir}/man8/utftpd*.8*
-%attr(750,tftp,tftp) %dir /var/lib/tftp
+%attr(750,tftp,root) %dir /var/lib/tftp
 
 %files client
 %defattr(644,root,root,755)
