@@ -2,17 +2,17 @@ Summary:	utftpd - a TFTP server
 Summary(pl):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
-Release:	6
+Release:	7
 License:	GPL
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
 Source1:	%{name}.inetd
+Provides:	tftpdaemon
 Buildrequires:	autoconf
 Prereq:		rc-inetd
 Obsoletes:	tftpd
-Provides:	tftpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -119,22 +119,36 @@ install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/lib/tftp}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
 
-touch $RPM_BUILD_ROOT%{_sysconfdir}/utftpd.cdb
+touch $RPM_BUILD_ROOT%{_sysconfdir}/{utftpd.cdb,utftpd.conf}
 
 gzip -9nf AUTHORS ChangeLog NEWS README README.cvs sample.config
 
-%post
+%pre -n utftpd
+if [ -n "`id -u tftp 2>/dev/null`" ]; then
+	if [ "`id -u tftp`" != "15" ]; then
+		echo "Warning: user tftp haven't uid=15. Correct this before installing tftpd" 1>&2
+		exit 1
+	fi
+else
+	echo "Adding user tftp UID=15"
+        /usr/sbin/useradd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp 1>&2
+fi
+
+%post -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd restart 1>&2
 else
-	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet sever" 1>&2
+	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
 fi
-touch %{_sysconfdir}/utftpd.cdb
-chmod 640 %{_sysconfdir}/utftpd.cdb
 
-%postun
+%postun -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd restart
+fi
+
+if [ "$1" = "0" ]; then
+	echo "Removing user tftp UID=15"
+        /usr/sbin/userdel tftp
 fi
 
 %clean
@@ -144,11 +158,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *gz
 %attr(640,root,root) %ghost %{_sysconfdir}/utftpd.cdb
+%attr(644,root,root) %config(noreplace) %{_sysconfdir}/utftpd.conf
 %attr(755,root,root) %{_sbindir}/utftpd
 %attr(755,root,root) %{_sbindir}/utftpd_make
 %attr(640,root,root) /etc/sysconfig/rc-inetd/utftpd
+%{_mandir}/man5/utftpd*.5.gz
 %{_mandir}/man8/utftpd*.8.gz
-%dir /var/lib/tftp
+%attr(755,tftp,ftp) %dir /var/lib/tftp
 
 %files client
 %defattr(644,root,root,755)
