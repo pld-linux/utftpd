@@ -6,4 +6,4 @@ FLAGS=wait
 USER=root
 SERVER=tcpd
 DAEMON=/usr/sbin/utftpd
-DAEMONARGS="-c /etc/utftpd.cdb -C /var/state/tftp -u tftp"
+DAEMONARGS="-c /etc/utftpd.cdb -C /var/lib/tftp -u tftp"
