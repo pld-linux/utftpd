@@ -11,7 +11,7 @@ Source1:	%{name}.inetd
 Source2:	%{name}.conf
 URL:		http://www.ohse.de/uwe/software/utftpd.html
 BuildRequires:	autoconf
-BuildRequires:	rpmbuild(macros) >= 1.159
+BuildRequires:	rpmbuild(macros) >= 1.202
 PreReq:		rc-inetd
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
@@ -132,15 +132,7 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/{utftpd.cdb,utftpd.conf}
 rm -rf $RPM_BUILD_ROOT
 
 %pre -n utftpd
-if [ -n "`id -u tftp 2>/dev/null`" ]; then
-	if [ "`id -u tftp`" != "15" ]; then
-		echo "Error: user tftp doesn't have uid=15. Correct this before installing utftpd." 1>&2
-		exit 1
-	fi
-else
-	echo "Adding user tftp UID=15."
-	/usr/sbin/useradd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp 1>&2
-fi
+%useradd -P utftpd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp
 
 %post -n utftpd
 if [ -f /var/lock/subsys/rc-inetd ]; then
