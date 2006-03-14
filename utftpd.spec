@@ -11,7 +11,7 @@ Source1:	%{name}.inetd
 Source2:	%{name}.conf
 URL:		http://www.ohse.de/uwe/software/utftpd.html
 BuildRequires:	autoconf
-BuildRequires:	rpmbuild(macros) >= 1.202
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(postun):	/usr/sbin/userdel
 Requires(pre):	/bin/id
 Requires(pre):	/usr/sbin/useradd
@@ -20,9 +20,9 @@ Provides:	tftpdaemon
 Provides:	user(tftp)
 Obsoletes:	atftpd
 Obsoletes:	inetutils-tftpd
-Obsoletes:	tftpd-hpa
-Obsoletes:	tftpd
 Obsoletes:	tftp-server
+Obsoletes:	tftpd
+Obsoletes:	tftpd-hpa
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -124,7 +124,7 @@ install -d $RPM_BUILD_ROOT/{etc/sysconfig/rc-inetd,var/lib/tftp}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/utftpd
-install %{SOURCE2} $RPM_BUILD_ROOT/etc/utftpd.conf
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/utftpd.conf
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/{utftpd.cdb,utftpd.conf}
 
@@ -135,21 +135,14 @@ rm -rf $RPM_BUILD_ROOT
 %useradd -P utftpd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp
 
 %post -n utftpd
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd restart 1>&2
-else
-	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server." 1>&2
-fi
 echo -n "Rebuilding utftpd configuration... "
-utftpd_make /etc/utftpd.cdb /etc/utftp.tmp /etc/utftpd.conf
+utftpd_make %{_sysconfdir}/utftpd.cdb %{_sysconfdir}/utftp.tmp %{_sysconfdir}/utftpd.conf
 echo "done"
+%service -q rc-inetd reload
 
 %postun -n utftpd
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd restart
-fi
-
-if [ "$1" = "0" ]; then
+if [ "$1" = 0 ]; then
+	%service -q rc-inetd reload
 	%userremove tftp
 fi
 
