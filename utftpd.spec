@@ -1,5 +1,5 @@
 Summary:	utftpd - a TFTP server
-Summary(pl.UTF-8):   utftpd - serwer TFTP
+Summary(pl.UTF-8):	utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
 Release:	21
@@ -64,7 +64,7 @@ Opis możliwości serwera GNU utftpd:
 
 %package client
 Summary:	utftpd - a TFTP client
-Summary(pl.UTF-8):   utftpd - klient TFTP
+Summary(pl.UTF-8):	utftpd - klient TFTP
 Group:		Networking/Utilities
 
 %description client
