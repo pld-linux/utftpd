@@ -1,5 +1,5 @@
 Summary:	utftpd - a TFTP server
-Summary(pl):	utftpd - serwer TFTP
+Summary(pl.UTF-8):   utftpd - serwer TFTP
 Name:		utftpd
 Version:	0.2.4
 Release:	21
@@ -44,27 +44,27 @@ Description with the features GNU utftpd has:
 - support for the timeout option (RFC 2349) No support for the tsize
   option of RFC 2349 now.
 
-%description -l pl
-Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wieksz± ni¿
+%description -l pl.UTF-8
+Pakiet utftpd zawiera serwer TFTP z kontrolÄ… dostÄ™pu wiekszÄ… niÅ¼
 standardowy serwer tftpd.
 
-Opis mo¿liwo¶ci serwera GNU utftpd:
-- wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
-  zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±æ na
-  nazwach hostów z których s± wykonywane te operacje.
-- wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
-  Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
-  konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
-  TFTP. Jest to oczywi¶cie cecha opcjonalna.
-- wsparcie do opcji blksize (RFC 2348). Umo¿liwia ona u¿ywanie
-  pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
-  efektywne (szczególnie przy komunikacji bezpo¶redniej).
-- mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
+Opis moÅ¼liwoÅ›ci serwera GNU utftpd:
+- wsparcie dla kontroli dostÄ™pu per IP. utftpd moÅ¼e przypisywaÄ‡ prawa
+  zapisu, odczytu, tworzenia plikÃ³w i ich nadpisywania bazujÄ…Ä‡ na
+  nazwach hostÃ³w z ktÃ³rych sÄ… wykonywane te operacje.
+- wsparcie do systemÃ³w kontroli wersji jak RCS, SCCS czy CVS.
+  UmoÅ¼liwia to np. odtworzenie poprzedniej wersji pliku np. z
+  konfiguracjÄ… routera jaka zostaÅ‚a zeskÅ‚adowana na serwerze z uÅ¼yciem
+  TFTP. Jest to oczywiÅ›cie cecha opcjonalna.
+- wsparcie do opcji blksize (RFC 2348). UmoÅ¼liwia ona uÅ¼ywanie
+  pakietÃ³w wiÄ™kszych niÅ¼ standardowe 512 bajtÃ³w co jest nieco bardziej
+  efektywne (szczegÃ³lnie przy komunikacji bezpoÅ›redniej).
+- moÅ¼liwoÅ›ci ustalania opcji timeout (RFC 2349). Brak jednoczeÅ›nie na
   razie ustawiania opcji tsize (RFC 2349).
 
 %package client
 Summary:	utftpd - a TFTP client
-Summary(pl):	utftpd - klient TFTP
+Summary(pl.UTF-8):   utftpd - klient TFTP
 Group:		Networking/Utilities
 
 %description client
@@ -88,22 +88,22 @@ Description with the features GNU utftpd has:
 
 This package contains utftp client only.
 
-%description client -l pl
-Pakiet utftpd zawiera serwer TFTP z kontrol± dostêpu wiêksz± ni¿
+%description client -l pl.UTF-8
+Pakiet utftpd zawiera serwer TFTP z kontrolÄ… dostÄ™pu wiÄ™kszÄ… niÅ¼
 standardowy serwer tftpd.
 
-Opis mo¿liwo¶ci serwera GNU utftpd:
-- wsparcie dla kontroli dostêpu per IP. utftpd mo¿e przypisywaæ prawa
-  zapisu, odczytu, tworzenia plików i ich nadpisywania bazuj±c na
-  nazwach hostów z których s± wykonywane te operacje.
-- wsparcie do systemów kontroli wersji jak RCS, SCCS czy CVS.
-  Umo¿liwia to np. odtworzenie poprzedniej wersji pliku np. z
-  konfiguracj± routera jaka zosta³a zesk³adowana na serwerze z u¿yciem
+Opis moÅ¼liwoÅ›ci serwera GNU utftpd:
+- wsparcie dla kontroli dostÄ™pu per IP. utftpd moÅ¼e przypisywaÄ‡ prawa
+  zapisu, odczytu, tworzenia plikÃ³w i ich nadpisywania bazujÄ…c na
+  nazwach hostÃ³w z ktÃ³rych sÄ… wykonywane te operacje.
+- wsparcie do systemÃ³w kontroli wersji jak RCS, SCCS czy CVS.
+  UmoÅ¼liwia to np. odtworzenie poprzedniej wersji pliku np. z
+  konfiguracjÄ… routera jaka zostaÅ‚a zeskÅ‚adowana na serwerze z uÅ¼yciem
   TFTP. Jest to oczywiscie cecha opcjonalna.
-- wsparcie do opcji blksize (RFC 2348). Umozliwia ona u¿ywanie
-  pakietów wiêkszych ni¿ standardowe 512 bajtów co jest nieco bardziej
-  efektywne (szczególnie przy komunikacji bezpo¶redniej).
-- mo¿liwo¶ci ustalania opcji timeout (RFC 2349). Brak jednocze¶nie na
+- wsparcie do opcji blksize (RFC 2348). Umozliwia ona uÅ¼ywanie
+  pakietÃ³w wiÄ™kszych niÅ¼ standardowe 512 bajtÃ³w co jest nieco bardziej
+  efektywne (szczegÃ³lnie przy komunikacji bezpoÅ›redniej).
+- moÅ¼liwoÅ›ci ustalania opcji timeout (RFC 2349). Brak jednoczeÅ›nie na
   razie ustawiania opcji tsize (RFC 2349).
 
 Ten pakiet zawiera tylko klienta utftp.
