@@ -1,0 +1,2 @@
+- added passing LDGLAGS="-s" to configure environment - now binaries are
+  stripped).
