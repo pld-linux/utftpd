@@ -131,16 +131,16 @@ touch $RPM_BUILD_ROOT%{_sysconfdir}/{utftpd.cdb,utftpd.conf}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%pre -n utftpd
+%pre
 %useradd -P utftpd -u 15 -r -d /var/lib/tftp -s /bin/false -c "TFTP User" -g ftp tftp
 
-%post -n utftpd
+%post
 echo -n "Rebuilding utftpd configuration... "
 utftpd_make %{_sysconfdir}/utftpd.cdb %{_sysconfdir}/utftp.tmp %{_sysconfdir}/utftpd.conf
 echo "done"
 %service -q rc-inetd reload
 
-%postun -n utftpd
+%postun
 if [ "$1" = 0 ]; then
 	%service -q rc-inetd reload
 	%userremove tftp
